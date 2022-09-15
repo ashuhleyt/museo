@@ -11,4 +11,8 @@ RSpec.describe Curator do
   it 'exists' do 
     expect(@curator).to be_instance_of(Curator)
   end
+
+  it 'starts with no photographs' do 
+    expect(@curator.photographs).to eq([])
+  end
 end
