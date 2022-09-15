@@ -33,4 +33,8 @@ RSpec.describe Curator do
     expect(@curator.photographs).to eq([@photo_1, @photo_2])
   end
 
+  it 'can list artists' do 
+    expect(@curator.artists).to eq([])
+  end
+
 end
