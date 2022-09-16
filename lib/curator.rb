@@ -20,4 +20,13 @@ class Curator
       artist.id == id
     end
   end
+
+  def photographs_by_artist 
+    photos_by_artist = Hash.new { |hash, key| hash[key] = []}
+    @photographs.each do |photograph|
+      photos_by_artist[find_artist_by_id(photograph.artist_id)] << photograph 
+      # require 'pry'; binding.pry
+    end
+    return photos_by_artist
+  end
 end
