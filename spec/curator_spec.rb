@@ -110,4 +110,16 @@ RSpec.describe Curator do
 
     expect(@curator.artists_with_multiple_photographs).to eq(["Diane Arbus"])
   end
+
+  it 'can locate artist by id' do 
+    @curator.add_artist(@artist_1)  
+    @curator.add_artist(@artist_2)  
+    @curator.add_artist(@artist_3) 
+    @curator.add_photograph(@photo_1)
+    @curator.add_photograph(@photo_2)
+    @curator.add_photograph(@photo_3)
+    @curator.add_photograph(@photo_4)
+
+    expect(@curator.find_artist_by_id("1")).to eq(@artist_1)
+  end
 end
