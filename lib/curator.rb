@@ -29,4 +29,13 @@ class Curator
     end
     return photos_by_artist
   end
-end
+  
+  def artists_with_multiple_photographs
+     favored_artist= @artists.select do |artist|
+      photographs_by_artist[artist].length >1
+    end
+    favored_artist.map do |artist|
+      artist.name
+    end
+  end
+end 

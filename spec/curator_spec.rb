@@ -98,4 +98,16 @@ RSpec.describe Curator do
       @artist_3 => [@photo_3, @photo_4]
      })
   end
+
+  it 'can list artists with multiple photographs' do 
+    @curator.add_artist(@artist_1)  
+    @curator.add_artist(@artist_2)  
+    @curator.add_artist(@artist_3) 
+    @curator.add_photograph(@photo_1)
+    @curator.add_photograph(@photo_2)
+    @curator.add_photograph(@photo_3)
+    @curator.add_photograph(@photo_4)
+
+    expect(@curator.artists_with_multiple_photographs).to eq(["Diane Arbus"])
+  end
 end
