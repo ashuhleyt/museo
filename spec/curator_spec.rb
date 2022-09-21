@@ -122,4 +122,16 @@ RSpec.describe Curator do
 
     expect(@curator.find_artist_by_id("1")).to eq(@artist_1)
   end
+
+  it 'can list photographs taken by artist from locations' do 
+    @curator.add_artist(@artist_1)  
+    @curator.add_artist(@artist_2)  
+    @curator.add_artist(@artist_3) 
+    @curator.add_photograph(@photo_2)
+    @curator.add_photograph(@photo_3)
+    @curator.add_photograph(@photo_4)
+
+    expect(@curator.photographs_taken_by_artist_from("United States")).to eq([@photo_2, @photo_3, @photo_4])
+    expect(@curator.photographs_taken_by_artist_from("Argentina")).to eq([])
+  end 
 end
